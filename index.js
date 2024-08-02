@@ -1,14 +1,15 @@
 const { Pool } = require('pg');
 const express = require('express');
+const dotenv = require('dotenv');
 const app = express();
-const port = 9000;
+const port = process.env.PORT || 9000;
 
 const pool = new Pool({
-    user: 'postgres', 
-    host: 'localhost',
-    database: 'myapp',
-    password: '1111', 
-    port: 5432
+    user: process.env.NAME, 
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD, 
+    port: process.env.PORT
 });
 
 app.use(express.json());
